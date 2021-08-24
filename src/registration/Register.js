@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import fire from '../fire'
 import {Login} from './Login'
+import {Hero} from './Hero'
 
 function Register() {
     const [user, setUser] = useState('');
@@ -87,6 +88,12 @@ useEffect(() => {
 
     return (
         <div>
+            { user ? (
+                <Hero handleLogout={handleLogout}/>
+
+            ) : (
+
+            
          <Login 
          email={email} 
          setEmail={setEmail} 
@@ -100,6 +107,8 @@ useEffect(() => {
          passwordError={passwordError}        
 
          />
+        )}
+         
         </div>
     )
 }

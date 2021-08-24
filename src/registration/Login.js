@@ -21,31 +21,43 @@ passwordError} = props;
 
 
     return (
-        <div className="login">
-           <div className="loginContainer">
-            <lable>Username</lable>
+        <div className="base-container">
+           <div className="header">LogIn</div>
+           <div className="content">
+               <div className="image">
+                   <img src=""/>
+               </div>
+               <div className="form">
+                   <div className="form-group">
+            <lable htmlFor="username">Username</lable>
             <input
             type="text"
+            placeholder="username"
             autoFocus
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             />
             <p className="errorMsg">{emailError}</p>
-            <lable>Password</lable>
+            </div>
+            <div className="form-group">
+            <lable htmlFor="password">Password</lable>
             <input
-            tyep="password"
+            type="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
             <p className="errorMsg">{passwordError}</p>
+            </div>
+            </div>
            </div>
-           <div classname="btnContainer">
+           
+            <div className="footer">
                {hasAccount ? (
                    <>
-                   <button onClick={handleLogin}>Sign in</button>
-                   <p>Dont't have an account ? <pan onClick={() => setHasAccount(!hasAccount)}>Sign up</pan></p>
+                   <button className="btn" onClick={handleLogin}>Sign in</button>
+                   <p>Dont't have an account ? <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></p>
                    </>
 
                ) : (
