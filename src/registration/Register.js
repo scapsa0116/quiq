@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import fire from '../fire'
+import {Login} from './Login'
 
 function Register() {
     const [user, setUser] = useState('');
@@ -7,21 +8,21 @@ function Register() {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [emailError, setEmailError] = useState('');
-    const [hasAccount, sethasAccount] = useState('');
+    const [hasAccount, setHasAccount] = useState(false);
 
 
-    const clearImputs = () => {
+    const clearInputs = () => {
         setEmail("")
         setPassword("")
     }
 
     const clearErrors = () => {
         setEmailError("")
-        setPaswordErrors("")
+        setPasswordError("")
     }
 
-const handelLogin = () => {
-    clearErrors()
+const handleLogin = () => {
+    clearErrors();
     fire
     .auth()
     .signInWithEmailAndPassword(email, password)
@@ -32,9 +33,9 @@ const handelLogin = () => {
                     case "auth/user-not-found":
                         setEmailError(err.message);
                         break;
-                        case "auth/weak-password":
+                        case "auth/wrong-password":
                             setPasswordError(err.message);
-                            breack;
+                            break;
         }
     })
 }
@@ -51,9 +52,9 @@ const handleSignup = () => {
                 case "auth/invalid-email":
                         setEmailError(err.message);
                         break;
-                        case "auth/wrong-password":
+                        case "auth/week-password":
                             setPasswordError(err.message);
-                            breack;
+                            break;
         }
     })
 
@@ -66,7 +67,7 @@ const handleLogout =() => {
 const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
         if (user) {
-            clearImputs();
+            clearInputs();
             setUser(user);
         } else {
             setUser("")
@@ -79,9 +80,14 @@ useEffect(() => {
     authListener();
 }, [])
 
+
+
+
+
+
     return (
         <div>
-            hiii
+         <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>
         </div>
     )
 }
