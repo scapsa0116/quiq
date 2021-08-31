@@ -4,7 +4,9 @@ import './style.css'
 export const Login = (props) => {
 
 
-const {email,
+const {
+user,
+email,
 setEmail,
 password, 
 setPassword,
@@ -16,9 +18,34 @@ emailError,
 passwordError} = props;
 
 
+const RightSide = () => {
+    return <div className ="right-side"  onClick={handleLogin}>
+<div className='inner-container'>
+    <div classname='text'>
+          {user}
+    </div>
+</div>
+    </div>
+}
+
+const componentDidMount = ()  => {
+    //Add .right by default
+    this.rightSide.classList.add("right");
+  }
 
 
+  const changeState = () => {
+    const { hasAccount } = setHasAccount;
 
+    if (hasAccount) {
+      this.rightSide.classList.remove("right");
+      this.rightSide.classList.add("left");
+    } else {
+      this.rightSide.classList.remove("left");
+      this.rightSide.classList.add("right");
+    }
+    this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }));
+  }
 
 
     return (

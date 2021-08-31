@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import fire from '../fire'
 import {Login} from './Login'
 import {Hero} from './Hero'
+import '../App.css'
 
 function Register() {
     const [user, setUser] = useState('');
@@ -87,9 +88,11 @@ useEffect(() => {
 
 
     return (
-        <div>
+        <div className = "App">
+        <div classname="login">
+        <div className="container">
             { user ? (
-                <Hero handleLogout={handleLogout}/>
+        <Hero handleLogout={handleLogout}/>
 
             ) : (
 
@@ -109,6 +112,8 @@ useEffect(() => {
          />
         )}
          
+        </div>
+        </div>
         </div>
     )
 }
