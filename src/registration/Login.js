@@ -45,6 +45,7 @@ passwordError} = props;
             <lable htmlFor="password">Password</lable>
             <input
             type="password"
+            placeholder="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
