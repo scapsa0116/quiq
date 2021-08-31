@@ -5,7 +5,6 @@ export const Login = (props) => {
 
 
 const {
-user,
 email,
 setEmail,
 password, 
@@ -18,34 +17,8 @@ emailError,
 passwordError} = props;
 
 
-const RightSide = () => {
-    return <div className ="right-side"  onClick={handleLogin}>
-<div className='inner-container'>
-    <div classname='text'>
-          {user}
-    </div>
-</div>
-    </div>
-}
-
-const componentDidMount = ()  => {
-    //Add .right by default
-    this.rightSide.classList.add("right");
-  }
 
 
-  const changeState = () => {
-    const { hasAccount } = setHasAccount;
-
-    if (hasAccount) {
-      this.rightSide.classList.remove("right");
-      this.rightSide.classList.add("left");
-    } else {
-      this.rightSide.classList.remove("left");
-      this.rightSide.classList.add("right");
-    }
-    this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }));
-  }
 
 
     return (
@@ -83,6 +56,7 @@ const componentDidMount = ()  => {
            </div>
            
             <div className="footer">
+                <div>
                {hasAccount ? (
                    <>
                    <button className="btn" onClick={handleLogin}>Sign in</button>
@@ -91,13 +65,13 @@ const componentDidMount = ()  => {
 
                ) : (
                 <>
-                <button onClick={handleSignup}>Sign up</button>
+                <button onClick={handleSignup} className="btn">Sign up</button>
                 <p>Have an account ? <span onClick={() => setHasAccount(!hasAccount) }>Sign in</span></p>
                 </>
 
 
                )}
-
+      </div>
            </div>
         </div>
     )
