@@ -55,19 +55,23 @@ passwordError} = props;
             </div>
            </div>
            
-            <div className="footer">
-                <div>
+            <div>
+                <div className="footer">
                {hasAccount ? (
-                   <>
+                   <div className="SignUp">
                    <button className="btn" onClick={handleLogin}>Sign in</button>
+                   <div  className="footer">
                    <p>Dont't have an account ? <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></p>
-                   </>
+                   </div>
+                   </div>
 
                ) : (
-                <>
+                <div className="logIn">
                 <button onClick={handleSignup} className="btn">Sign up</button>
+                <div className="footer">
                 <p>Have an account ? <span onClick={() => setHasAccount(!hasAccount) }>Sign in</span></p>
-                </>
+                </div>
+                </div>
 
 
                )}

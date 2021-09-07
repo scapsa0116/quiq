@@ -50,12 +50,13 @@ export const Signup = (props) => {
             <p className="errorMsg">{passwordError}</p>
             </div>
             </div>
+            
            </div>
            
             <div className="footer">
-               
-                   <button className="btn" onClick={handleLogin}>Sign Up</button>
-                   <p>Dont't have an account ? <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></p>
+            <button className="btn" onClick={handleLogin}>Sign Up</button>
+                  
+            <p>Dont't have an account ? <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></p>
                   
 
            </div>
